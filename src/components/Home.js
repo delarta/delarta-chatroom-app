@@ -20,11 +20,10 @@ class Home extends Component {
   render() {
     return (
       <Segment inverted placeholder style={this.homeStyle()}>
-        <Header as="h1">Hi {this.props.sender.email ? this.props.sender.email : 'User'}, Welcome To Del's Chat</Header>
+        <Header as="h1">Hi , Welcome To Del's Chat</Header>
         <Button.Group>
           <Link to='/chatroom'>
           <Button size="large" color="teal">Chat Room</Button>
-
           </Link>
           <Button size="large" onClick={this.logout} inverted color="red">Logout</Button>
         </Button.Group>
