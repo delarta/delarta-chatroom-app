@@ -26,7 +26,7 @@ class SignIn extends Component {
         <Form onSubmit={this.onSubmit}>
           <Form.Field>
             <label>Email</label>
-            <input type="text" name="email" placeholder="Email" value={this.state.email} onChange={this.onChange}/>
+            <input type="email" name="email" placeholder="Email" value={this.state.email} onChange={this.onChange}/>
           </Form.Field>
           <Form.Field>
             <label>Password</label>

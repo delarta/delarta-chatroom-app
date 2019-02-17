@@ -34,7 +34,7 @@ class SignUp extends Component {
 
   render() {
     return(
-      <div>
+      <div style={{padding:'2em'}}>
         <Header as='h1'>Sign Up Page</Header>
         <Form onSubmit={this.onSubmit}>
           <Form.Field>

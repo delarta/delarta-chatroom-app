@@ -18,7 +18,7 @@ export class ChatWrite extends Component {
     return (
       <Form onSubmit={this.onSubmit}>
         <Form.TextArea name="message" value={this.state.message} onChange={this.onChange}/>
-        <Button content="Add Reply" type="submit" labelPosition='left' icon='edit' color='teal'></Button>
+        <Button content="Send" type="submit" labelPosition='left' icon='edit' color='teal'></Button>
       </Form>
     )
   }
