@@ -18,26 +18,6 @@ class App extends Component {
     this.state = 
     {
     chats: [
-      // {
-      //   id: uuid.v4(),
-      //   sender: 'Joni',
-      //   message: 'Hello darkness My Old Friend',
-      // },
-      // {
-      //   id: uuid.v4(),
-      //   sender: 'Justin',
-      //   message: "I've come to talk with you again"
-      // },
-      // {
-      //   id: uuid.v4(),
-      //   sender: 'User',
-      //   message: 'Because the voices softly creeping'
-      // },
-      // {
-      //   id: uuid.v4(),
-      //   sender: 'Joni',
-      //   message: 'Left it seed while I was sleeping'
-      // }
     ],
     users:[],
     currentUser:{
@@ -57,21 +37,9 @@ class App extends Component {
         snapshot.forEach(doc => {
           this.setState({users: [...this.state.users, doc.data()]})
         });
-        console.log(this.state.users);
+        // console.log(this.state.users);
       }
     )
-
-    // db.collection('chats').orderBy('datetime', 'asc').get().then(
-    //   snapshot => {
-    //     if (snapshot.empty) {
-    //       console.log('no Matching documents.');
-    //     }
-    //     snapshot.forEach(doc => {
-    //       this.setState({chats: [...this.state.chats, doc.data()]})
-    //     });
-    //     console.log(this.state.chats);
-    //   }
-    // )
 
     db.collection('chats').orderBy('datetime').onSnapshot(
       snapshot => {
@@ -111,9 +79,6 @@ class App extends Component {
     const db = fire.firestore();
     db.collection('chats').add(newReply
     )
-    // .then(() => {
-    //   this.setState({chats:[...this.state.chats, newReply]})
-    // })
   }
 
   render() {

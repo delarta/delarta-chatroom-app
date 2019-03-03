@@ -1,33 +1,57 @@
 import React, {Component} from 'react';
 import fire from '../config/Fire';
-import {Button, Header, Segment} from 'semantic-ui-react';
-import {Link} from 'react-router-dom';
-
+import { Icon, Menu, Segment, Sidebar } from 'semantic-ui-react'
+import Landing from './Landing';
 class Home extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      visible: false
+    }
+  }
 
   logout = () => {
     fire.auth().signOut();
   }
 
-  homeStyle = () => {
-    return {
-      minHeight: '100vh',
-      paddingLeft: '2em',
-      paddingRight: '2em'
-    }
-  }
+  handleShowClick = () => this.setState({ visible: true });
+  handleHideClick = () => this.setState({ visible: false });
+  handleSidebarHide = () => this.setState({ visible: false });
 
   render() {
     return (
-      <Segment inverted placeholder style={this.homeStyle()}>
-        <Header as="h1">Hi , Welcome To Del's Chat</Header>
-        <Button.Group>
-          <Link to='/chatroom'>
-          <Button size="large" color="teal">Chat Room</Button>
-          </Link>
-          <Button size="large" onClick={this.logout} inverted color="red">Logout</Button>
-        </Button.Group>
-      </Segment>
+      <div>
+        <Sidebar.Pushable as={Segment}>
+          <Sidebar as={Menu}
+          animation='push'
+          icon='labeled'
+          inverted
+          onHide={this.handleSidebarHide}
+          vertical
+          visible={this.state.visible}
+          width='thin'
+        >
+        <Menu.Item as='a' to='/'>
+          <Icon name='home' />
+          Home
+        </Menu.Item>
+        <Menu.Item as='a' onClick={this.logout}>
+          <Icon name='power off' />
+          Logout
+        </Menu.Item>
+        
+        </Sidebar>
+        <Sidebar.Pusher>
+          <Menu style={{borderRadius:'0', height:'50px'}} inverted>
+            <Menu.Item as='a' onClick={this.handleShowClick}>
+              <Icon name='bars' />
+            </Menu.Item>
+          </Menu>
+          <Landing />
+        </Sidebar.Pusher>
+        </Sidebar.Pushable>
+      </div>
+      
     )
   }
 }

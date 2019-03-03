@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {Form, Button} from 'semantic-ui-react'
+import {Form, Button, Container} from 'semantic-ui-react'
 
 export class ChatWrite extends Component {
   state = {
@@ -16,10 +16,14 @@ export class ChatWrite extends Component {
 
   render() {
     return (
-      <Form onSubmit={this.onSubmit}>
-        <Form.TextArea name="message" value={this.state.message} onChange={this.onChange}/>
-        <Button content="Send" type="submit" labelPosition='left' icon='edit' color='teal'></Button>
+      <Container>
+        <Form onSubmit={this.onSubmit}>
+        <Form.Group>
+          <Form.TextArea name="message" value={this.state.message} onChange={this.onChange}/>
+          <Form.Button content="Send" type="submit" labelPosition='left' icon='edit' color='teal'></Form.Button>
+        </Form.Group>
       </Form>
+      </Container>
     )
   }
 }

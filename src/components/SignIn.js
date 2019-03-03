@@ -1,5 +1,5 @@
 import React, {Component}from 'react';
-import {Header ,Button, Form} from 'semantic-ui-react';
+import {Header ,Button, Form, Image} from 'semantic-ui-react';
 import {Link} from 'react-router-dom';
 import fire from '../config/Fire';
 
@@ -19,10 +19,16 @@ class SignIn extends Component {
 
   onChange = (e) => this.setState({[e.target.name]: e.target.value});
 
+  loginStyle = () =>{
+    return {
+      padding: '2em',
+    }
+  }
   render() {
     return(
-      <div style={{padding:'2em'}}>
-        <Header as='h1'>Sign In Page</Header>
+      <div style={this.loginStyle()}>
+        <Image src="/assets/img/del_logo_transparent.png" size="small" centered/>
+        <Header as='h1' style={{textAlign:'center'}}>Sign In</Header>
         <Form onSubmit={this.onSubmit}>
           <Form.Field>
             <label>Email</label>
@@ -32,8 +38,11 @@ class SignIn extends Component {
             <label>Password</label>
             <input type="password" name="password" placeholder="password" value={this.state.password} onChange={this.onChange}/>
           </Form.Field>
-          <Button type='submit'>Submit</Button>
-          <Link to="/signup">Belum Punya akun? Klik disini</Link>
+          <Button type='submit' color="teal">Sign In</Button>
+          
+          <Link  to="/signup">
+          <Button style={{float:'right'}} >Sign Up</Button>
+          </Link>
         </Form>
       </div>
     )

@@ -1,6 +1,7 @@
 import React, {Component}from 'react';
 import {Header ,Button, Form} from 'semantic-ui-react';
 import fire from '../config/Fire';
+import { Redirect } from 'react-router-dom';
 
 class SignUp extends Component {
   constructor(props) {
@@ -8,7 +9,8 @@ class SignUp extends Component {
     this.state = {
       name: '',
       email: '',
-      password: ''
+      password: '',
+      redirect: false
     }
   }
 
@@ -26,13 +28,17 @@ class SignUp extends Component {
     this.setState({
       name: '',
       email: '',
-      password: ''
+      password: '',
+      redirect: true
     });
   }
 
   onChange = (e) => this.setState({[e.target.name]: e.target.value});
 
   render() {
+    if (this.state.redirect){
+      return <Redirect to='/' />
+    }
     return(
       <div style={{padding:'2em'}}>
         <Header as='h1'>Sign Up Page</Header>
