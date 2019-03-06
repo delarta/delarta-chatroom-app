@@ -27,7 +27,7 @@ class SignIn extends Component {
   render() {
     return(
       <div style={this.loginStyle()}>
-        <Image src="/assets/img/del_logo_transparent.png" size="small" centered/>
+        <Image src="/assets/img/del_logo_black.png" size="small" centered/>
         <Header as='h1' style={{textAlign:'center'}}>Sign In</Header>
         <Form onSubmit={this.onSubmit}>
           <Form.Field>
@@ -38,7 +38,7 @@ class SignIn extends Component {
             <label>Password</label>
             <input type="password" name="password" placeholder="password" value={this.state.password} onChange={this.onChange}/>
           </Form.Field>
-          <Button type='submit' color="teal">Sign In</Button>
+          <Button type='submit' secondary color="teal">Sign In</Button>
           
           <Link  to="/signup">
           <Button style={{float:'right'}} >Sign Up</Button>

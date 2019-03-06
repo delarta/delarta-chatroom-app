@@ -16,11 +16,11 @@ export default class Landing extends Component {
   render() {
     return (
       <div style={this.homeStyle()}>
-        <Image src="/assets/img/del_logo_transparent.png" size="small" centered/>
+        <Image src="/assets/img/del_logo_black.png" size="small" centered/>
         <Header as="h1">Hi , Welcome To Del's Chat</Header>
         <p>This is a simple chat room apps created using ReactJS and Firebase Fire store, Please Enjoy!</p>
           <Link to='/chatroom'>
-          <Button size="large" color="teal" fluid>Go to Chat Room!</Button>
+          <Button size="large" secondary color="teal" fluid>Go to Chat Room!</Button>
           </Link>
       </div>
     )

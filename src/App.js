@@ -2,9 +2,12 @@ import React, { Component } from 'react';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 import SignIn from './components/SignIn';
 import SignUp from './components/SignUp';
-import Home from './components/Home';
 import Chatroom from "./components/Chatroom";
 import ChatWrite from "./components/ChatWrite";
+import Landing from "./components/Landing";
+
+import Navside from './layouts/Navside';
+
 import fire from './config/Fire';
 import uuid from 'uuid';
 
@@ -21,7 +24,6 @@ class App extends Component {
     ],
     users:[],
     currentUser:{
-      
     }
   }
   }
@@ -86,17 +88,17 @@ class App extends Component {
       <Router>
         <div>
           <Route exact path="/" render={props => (
-            this.state.user ? <Home sender={this.state.currentUser}/> : <SignIn />
+            this.state.user ? <Navside><Landing sender={this.state.currentUser}/></Navside>  : <SignIn />
           )} />
           <Route path="/signin" render={props => (
             <SignIn/>
           )} />
           <Route path="/signup" component={SignUp} />
           <Route path="/chatroom" render={props =>(
-            <React.Fragment>
+            <Navside>
               <Chatroom sender={this.state.currentUser} chats={this.state.chats} />
               <ChatWrite sender={this.state.currentUser} addReply={this.addReply}/>
-              </React.Fragment>  
+            </Navside>  
             )} />
         </div>
       </Router>

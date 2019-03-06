@@ -5,7 +5,9 @@ export class Chatroom extends Component {
     return {
       maxWidth: '800px',
       background: '#f4f4f4',
-      padding: '2em'
+      padding: '2em',
+      height: '76vh',
+      overflowY: 'scroll'
     }
   }
   render() {

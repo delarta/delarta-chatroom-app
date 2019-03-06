@@ -16,12 +16,10 @@ export class ChatWrite extends Component {
 
   render() {
     return (
-      <Container>
+      <Container style={{paddingTop:'1em',paddingBottom:'1em;'}}>
         <Form onSubmit={this.onSubmit}>
-        <Form.Group>
           <Form.TextArea name="message" value={this.state.message} onChange={this.onChange}/>
-          <Form.Button content="Send" type="submit" labelPosition='left' icon='edit' color='teal'></Form.Button>
-        </Form.Group>
+          <Button type="submit" labelPosition='left' content="Send" icon='paper plane' secondary color='teal' fluid></Button>
       </Form>
       </Container>
     )
